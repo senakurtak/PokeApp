@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CustomTVC" customModule="PokemonApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="380" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="380" height="200"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vrk-8I-S1q">
+                        <rect key="frame" x="5" y="5" width="200" height="190"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="200" id="ZjM-Lt-ljg"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgX-Ou-tG4">
+                        <rect key="frame" x="217" y="31" width="143" height="138"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Vrk-8I-S1q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="1x1-2K-YlL"/>
+                    <constraint firstItem="Vrk-8I-S1q" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="5H8-fb-y23"/>
+                    <constraint firstItem="wgX-Ou-tG4" firstAttribute="leading" secondItem="Vrk-8I-S1q" secondAttribute="trailing" constant="12" id="Bgt-eZ-prE"/>
+                    <constraint firstAttribute="bottom" secondItem="Vrk-8I-S1q" secondAttribute="bottom" constant="5" id="Bqs-SU-qHX"/>
+                    <constraint firstItem="wgX-Ou-tG4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="20" id="ClR-VR-MP1"/>
+                    <constraint firstItem="wgX-Ou-tG4" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Mex-dH-7gI"/>
+                    <constraint firstItem="wgX-Ou-tG4" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="RMY-dx-OjP"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="pokeImage" destination="Vrk-8I-S1q" id="211-BV-Idd"/>
+                <outlet property="pokeName" destination="wgX-Ou-tG4" id="T97-20-LEf"/>
+            </connections>
+            <point key="canvasLocation" x="70.229007633587784" y="20.422535211267608"/>
+        </tableViewCell>
+    </objects>
+</document>
