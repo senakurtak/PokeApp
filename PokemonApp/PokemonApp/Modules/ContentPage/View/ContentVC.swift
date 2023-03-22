@@ -21,11 +21,11 @@ class ContentVC: UIViewController {
         viewModel.getPokemonList { result in
             switch result {
             case .success(let pokemonResults):
-                print(pokemonResults.results.first?.name)
-                print("all pokemon names below")
-                for pokemon in pokemonResults.results {
-                    print(pokemon.name)
-                }
+//                print(pokemonResults.results.first?.name)
+//                print("all pokemon names below")
+//                for pokemon in pokemonResults.results {
+//                    print(pokemon.name)
+//                }
                 self.collectionView.reloadData()
             case .failure(let error):
                 print("Error retrieving Pokemon list: \(error.localizedDescription)")

@@ -27,7 +27,7 @@ extension UIColor {
     }
     
     @nonobjc class var pokeCoalAlpha: UIColor {
-        return UIColor(red: 35/255.0, green: 35/255.0, blue: 35/255.0, alpha: 0.6)
+        return UIColor(red: 35/255.0, green: 35/255.0, blue: 35/255.0, alpha: 0.975)
     }
 
     @nonobjc class var pokeBlack: UIColor {

@@ -33,7 +33,7 @@ class ContentVM {
                         print("Error decoding response data: \(error)")
                         completion(.failure(error))
                     }
-                    print(self.pokemons.first?.name)
+//                    print(self.pokemons.first?.name)
                 case .failure(let error):
                     print("Request failed with error: \(error)")
                     completion(.failure(error))

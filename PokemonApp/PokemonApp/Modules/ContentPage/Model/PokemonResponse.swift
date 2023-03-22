@@ -9,19 +9,17 @@
 
 class PokemonResponse: Codable {
     
-    let count: Int?
-    let next: String?
-    let previous: String?
+//    let count: Int?
+//    let next: String?
+//    let previous: String?
     let results: [PokemonResult]
-    let id: Int?
     
     enum CodingKeys: String, CodingKey {
         
-        case count
-        case next
-        case previous
+//        case count
+//        case next
+//        case previous
         case results = "results"
-        case id
         
     }
     

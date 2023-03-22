@@ -7,13 +7,19 @@
 
 // https://pokeapi.co/api/v2/ability
 
-import Foundation
-
 class AbilityResponse: Codable {
     
-    let count : Int?
-    let next : String?
-    let previous : String?
-    let result : [AbilityResult]
-    
+//    let count : Int?
+//    let next : String?
+//    let previous : String?
+    let results : [AbilityResult]
+ 
+    enum CodingKeys: String, CodingKey {
+        
+//        case count
+//        case next
+//        case previous
+        case results = "results"
+        
+    }
 }
