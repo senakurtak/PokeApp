@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ContentVC: UIViewController {
     
@@ -30,6 +31,7 @@ class ContentVC: UIViewController {
                 print("Error retrieving Pokemon list: \(error.localizedDescription)")
             }
         }
+        self.collectionView.reloadData()
         configure()
     }
     
@@ -53,6 +55,14 @@ extension ContentVC : UICollectionViewDelegate, UICollectionViewDataSource{
         cell.layer.masksToBounds = true
         if indexPath.row < viewModel.pokemons.count {
             let pokeName = viewModel.pokemons[indexPath.row].name
+            let url = viewModel.pokemons[indexPath.row].url // https://pokeapi.co/api/v2/pokemon/1/
+            let start = url.index(url.startIndex, offsetBy: 34)
+            let end = url.index(url.endIndex, offsetBy: -1)
+            let range = start..<end
+            let subStr = url[range]
+            self.pokeID = Int(subStr)
+            let urlString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokeID ?? 1).png"
+            cell.pokeImage.sd_setImage(with: URL(string: urlString))
             cell.pokeName.text = pokeName.uppercased()
             cell.pokeName.textColor = .pokeYellow
             cell.backgroundColor = .pokeCoalAlpha
@@ -63,7 +73,14 @@ extension ContentVC : UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailVC = DetailPageVC()
         let pokeName = viewModel.pokemons[indexPath.row].name
+        let url = viewModel.pokemons[indexPath.row].url // https://pokeapi.co/api/v2/pokemon/1/
+        let start = url.index(url.startIndex, offsetBy: 34)
+        let end = url.index(url.endIndex, offsetBy: -1)
+        let range = start..<end
+        let subStr = url[range]
+        detailVC.pokeID = Int(subStr)
         detailVC.pokeNameText = pokeName.uppercased()
+        self.pokeID = Int(subStr)
         present(detailVC, animated: true)
     }
 }

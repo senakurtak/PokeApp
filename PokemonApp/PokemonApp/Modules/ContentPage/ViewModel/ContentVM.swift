@@ -7,11 +7,12 @@
 
 import Foundation
 import Alamofire
+import SDWebImage
 
 class ContentVM {
-
+    
     var pokemons: [PokemonResult] = []
-
+        
     func getPokemonList(completion: @escaping (Result<PokemonResponse, Error>) -> Void) {
         AF.request("https://pokeapi.co/api/v2/pokemon/")
             .responseData { response in

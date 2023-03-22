@@ -16,13 +16,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="390" height="200"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pokeball" translatesAutoresizingMaskIntoConstraints="NO" id="syT-Mc-caZ">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokeball" translatesAutoresizingMaskIntoConstraints="NO" id="syT-Mc-caZ">
                         <rect key="frame" x="0.0" y="0.0" width="178" height="200"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1C-Bz-QZO">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1C-Bz-QZO">
                         <rect key="frame" x="195" y="90" width="173" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="173" id="TSa-Ld-aCd"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -31,6 +32,15 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="syT-Mc-caZ" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="2xu-Td-Bh4"/>
+                <constraint firstItem="U1C-Bz-QZO" firstAttribute="leading" secondItem="syT-Mc-caZ" secondAttribute="trailing" constant="17" id="CVZ-fa-m2N"/>
+                <constraint firstItem="U1C-Bz-QZO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="90" id="KRD-tS-Ql6"/>
+                <constraint firstItem="syT-Mc-caZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="RVI-FF-ioK"/>
+                <constraint firstAttribute="trailing" secondItem="U1C-Bz-QZO" secondAttribute="trailing" constant="22" id="ee4-TS-r0R"/>
+                <constraint firstItem="syT-Mc-caZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="i7K-Ds-mQC"/>
+                <constraint firstItem="syT-Mc-caZ" firstAttribute="centerY" secondItem="U1C-Bz-QZO" secondAttribute="centerY" id="sfG-mm-qzo"/>
+            </constraints>
             <size key="customSize" width="114" height="32"/>
             <connections>
                 <outlet property="pokeImage" destination="syT-Mc-caZ" id="qoJ-qW-M39"/>

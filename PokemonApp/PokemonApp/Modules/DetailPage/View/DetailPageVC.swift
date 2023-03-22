@@ -24,6 +24,7 @@ class DetailPageVC: UIViewController {
     
     @IBOutlet weak var abilityFourth: UILabel!
     
+    var pokeID: Int?
     var pokeNameText : String?
     var abilityFirstText: String?
     var abilitySecondText: String?
@@ -44,5 +45,8 @@ class DetailPageVC: UIViewController {
         abilitySecond.textColor = .pokeGreen
         abilityThird.textColor = .pokeGreen
         abilityFourth.textColor = .pokeGreen
+        pokeName.text = pokeNameText
+        let urlString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokeID ?? 1).png"
+        pokeImage.sd_setImage(with: URL(string: urlString))
     }
 }
