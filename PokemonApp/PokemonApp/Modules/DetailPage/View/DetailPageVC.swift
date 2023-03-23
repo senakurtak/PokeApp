@@ -26,38 +26,39 @@ class DetailPageVC: UIViewController {
     
     var pokeID: Int?
     var pokeNameText : String?
-    var abilityFirstText: String?
-    var abilitySecondText: String?
-    var abilityThirdText: String?
-    var abilityFourthText: String?
+        var abilityFirstText: String?
+        var abilitySecondText: String?
+        var abilityThirdText: String?
+        var abilityFourthText: String?
     
     var viewModel = DetailVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //        viewModel.getAbilitiesList { result in
-        //            switch result {
-        //            case .success(let abilityResults):
-        ////                print(abilityResults.results.first?.name)
-        //                print("all ability names below")
-        //                for ability in abilityResults.results {
-        ////                    print(ability.name)
-        //                }
-        ////                print(self.viewModel.pokemonAbilities)
-        //                self.setUpDetailPage()
-        //            case .failure(let error):
-        //                print("Error retrieving ability list: \(error.localizedDescription)")
-        //            }
-        //        }
-        
-        
         viewModel.getPokemonAbilities(id: pokeID!) { result in
             switch result {
             case .success(let pokemonAbilityResults):
-                print(pokemonAbilityResults.abilities)
                 self.setUpDetailPage()
-                print(self.viewModel.pokemonAbilities)
+                if let firstAbilityName = pokemonAbilityResults.abilities.first?.ability.name {
+                    self.abilityFirst.text = firstAbilityName.uppercased()
+                } else {
+                    self.abilityFirst.text = ""
+                }
+                if pokemonAbilityResults.abilities.count > 1, let secondAbilityName = pokemonAbilityResults.abilities[1].ability.name {
+                    self.abilitySecond.text = secondAbilityName.uppercased()
+                } else {
+                    self.abilitySecond.text = ""
+                }
+                if pokemonAbilityResults.abilities.count > 2, let thirdAbilityName = pokemonAbilityResults.abilities[2].ability.name {
+                    self.abilityThird.text = thirdAbilityName.uppercased()
+                } else {
+                    self.abilityThird.text = ""
+                }
+                if pokemonAbilityResults.abilities.count > 3, let fourthAbilityName = pokemonAbilityResults.abilities[3].ability.name {
+                    self.abilityFourth.text = fourthAbilityName.uppercased()
+                } else {
+                    self.abilityFourth.text = ""
+                }
             case .failure(let error):
                 print("Error retrieving Pokemon Abilities \(error.localizedDescription)")
             }
@@ -70,13 +71,7 @@ class DetailPageVC: UIViewController {
         pokeImage.layer.cornerRadius = 5
         abilitiesTitle.textColor = .pokeYellow
         abilityFirst.textColor = .pokeGreen
-        abilityFirstText = viewModel.pokemonAbilities.first?.ability.name
-        abilityFirst.text = abilityFirstText
-        abilityFirst.textColor = .pokeWhite
         abilitySecond.textColor = .pokeGreen
-        //        abilitySecondText = viewModel.pokemonAbilities.ability.name
-        //        let abilityName = viewModel.pokemonAbilities[1].ability.name
-        abilitySecond.text = abilitySecondText
         abilityThird.textColor = .pokeGreen
         abilityFourth.textColor = .pokeGreen
         pokeName.text = pokeNameText
