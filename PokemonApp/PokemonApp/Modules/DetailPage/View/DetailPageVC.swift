@@ -75,8 +75,16 @@ class DetailPageVC: UIViewController {
         abilityThird.textColor = .pokeGreen
         abilityFourth.textColor = .pokeGreen
         pokeName.text = pokeNameText
-        let urlString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokeID ?? 1).png"
-        pokeImage.sd_setImage(with: URL(string: urlString))
+        
+        viewModel.getPokemonImage(id: pokeID!) { result in
+            switch result {
+            case .success(let imageURL):
+                self.pokeImage.sd_setImage(with: URL(string: imageURL ?? "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1"))
+            case .failure(let error):
+                print("Error retrieving Pokemon image: \(error)")
+
+            }
+        }
         view.backgroundColor = .pokeCoalAlpha
     }
 }

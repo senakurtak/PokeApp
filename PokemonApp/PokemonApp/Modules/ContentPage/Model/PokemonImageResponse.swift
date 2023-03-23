@@ -1,10 +1,18 @@
 //
-//  PokemonImageResult.swift
+//  PokemonImageResponse.swift
 //  PokemonApp
 //
-//  Created by Sena Kurtak on 22.03.2023.
+//  Created by Sena Kurtak on 23.03.2023.
 //
+// https://pokeapi.co/api/v2/pokemon/1
 
-// https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg
-
-import Foundation
+class PokemonImageResponse: Codable {
+    
+    let sprites : Sprites
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case sprites
+        
+    }
+}

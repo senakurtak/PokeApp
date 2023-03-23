@@ -61,11 +61,18 @@ extension ContentVC : UICollectionViewDelegate, UICollectionViewDataSource{
             let range = start..<end
             let subStr = url[range]
             self.pokeID = Int(subStr)
-            let urlString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokeID ?? 1).png"
-            cell.pokeImage.sd_setImage(with: URL(string: urlString))
             cell.pokeName.text = pokeName.uppercased()
             cell.pokeName.textColor = .pokeYellow
             cell.backgroundColor = .pokeCoalAlpha
+            var urlString : String?
+            viewModel.getPokemonImage(id: pokeID!) { result in
+                switch result {
+                case .success(let imageURL):
+                    cell.pokeImage.sd_setImage(with: URL(string: imageURL ?? "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1"))
+                case .failure(let error):
+                    print("Error retrieving Pokemon image: \(error)")
+                }
+            }
         }
         return cell
     }
