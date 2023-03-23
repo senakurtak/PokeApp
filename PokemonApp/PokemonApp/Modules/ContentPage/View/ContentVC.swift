@@ -8,12 +8,17 @@
 import UIKit
 import SDWebImage
 
-class ContentVC: UIViewController {
+class ContentVC: UIViewController, PokemonSelectionDelegate {
+
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     var viewModel = ContentVM()
     var pokeID : Int?
+    
+    func didSelectPokemon(id: Int) {
+        pokeID = id
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +26,6 @@ class ContentVC: UIViewController {
         viewModel.getPokemonList { result in
             switch result {
             case .success(let pokemonResults):
-//                print(pokemonResults.results.first?.name)
-//                print("all pokemon names below")
-//                for pokemon in pokemonResults.results {
-//                    print(pokemon.name)
-//                }
                 self.collectionView.reloadData()
             case .failure(let error):
                 print("Error retrieving Pokemon list: \(error.localizedDescription)")
@@ -86,6 +86,7 @@ extension ContentVC : UICollectionViewDelegate, UICollectionViewDataSource{
         let range = start..<end
         let subStr = url[range]
         detailVC.pokeID = Int(subStr)
+        detailVC.delegate = self
         detailVC.pokeNameText = pokeName.uppercased()
         self.pokeID = Int(subStr)
         present(detailVC, animated: true)

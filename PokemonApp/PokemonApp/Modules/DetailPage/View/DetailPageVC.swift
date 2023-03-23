@@ -8,6 +8,10 @@
 import UIKit
 import Foundation
 
+protocol PokemonSelectionDelegate {
+    func didSelectPokemon(id: Int)
+}
+
 class DetailPageVC: UIViewController {
     
     @IBOutlet weak var pokeName: UILabel!
@@ -26,11 +30,12 @@ class DetailPageVC: UIViewController {
     
     var pokeID: Int?
     var pokeNameText : String?
-        var abilityFirstText: String?
-        var abilitySecondText: String?
-        var abilityThirdText: String?
-        var abilityFourthText: String?
-    
+    var delegate: PokemonSelectionDelegate?
+
+    var abilityFirstText: String?
+    var abilitySecondText: String?
+    var abilityThirdText: String?
+    var abilityFourthText: String?
     var viewModel = DetailVM()
     
     override func viewDidLoad() {
